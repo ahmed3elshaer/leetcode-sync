@@ -9,17 +9,14 @@
  */
 class Solution {
     fun modifiedList(nums: IntArray, head: ListNode?): ListNode? {
-       val numsMap = mutableMapOf<Int,Boolean>() 
+       val numsSet = nums.toCollection(hashSetOf()) 
 
-       for(num in nums){
-            numsMap[num] = true
-       }
        var res = head
        var currentNode = head
        var prevNode : ListNode? = null
 
        while(currentNode != null){
-            if(numsMap.containsKey(currentNode.`val`)){
+            if(currentNode.`val` in  numsSet){
                 if(prevNode == null){
                     res = currentNode?.next
                 }
