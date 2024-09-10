@@ -23,10 +23,18 @@ class Solution {
     }
 
     fun greatestCommonDivisor(first : Int, second: Int) :Int{
-        if(first % second == 0){
-            return second
+        if(first == second) return first
+        var top = first
+        var bottom = first
+         if(first > second){
+            top = first; bottom = second;
         }else{
-           return greatestCommonDivisor(second,first % second )
+            top = second; bottom = first;
+        }
+        if(top % bottom == 0){
+            return bottom
+        }else{
+           return greatestCommonDivisor(bottom,top % bottom )
         }
     }
 }
