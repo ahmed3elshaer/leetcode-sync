@@ -33,11 +33,8 @@ class Solution {
         }
         if(top % bottom == 0){
             return bottom
+        }else{
+           return greatestCommonDivisor(bottom,top % bottom )
         }
-        var res = bottom
-        while(top % res != 0 || bottom % res != 0){
-            res--
-        }
-        return res
     }
 }
